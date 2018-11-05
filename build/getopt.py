@@ -142,7 +142,7 @@ class Options:
 
     def getHelp(self):
         ret = ''
-        for opt,default in sorted(self._allargs.iteritems()):
+        for opt,default in sorted(self._allargs.items()):
             if default == True:
                 ret += "%-35s [=enabled]\n" % ("--enable-%s" % opt)
             else:
