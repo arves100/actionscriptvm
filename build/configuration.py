@@ -374,7 +374,7 @@ Possible values are:
         outpath = self._objdir + "/" + makefile
 
         contents = ''
-        for (k,v) in self._acvars.iteritems():
+        for (k,v) in self._acvars.items():
             if type(v) == dict: # not all _acvars are added with self.subst
                 contents += '%s%s%s\n' % (k, '=' if v['recursive'] else ':=',
                                           v['value'])
