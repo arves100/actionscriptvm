@@ -75,7 +75,7 @@ def rebuildsNeeded(files, outfile, verbose, quiet):
         istream.close()
     else:
         if not quiet:
-            print >>sys.stderr, "Writing %s: doesn't exist" % outfile
+            print("Writing %s: doesn't exist" % outfile, file=sys.stderr)
         do_write = True
 
     newrebuilds = []
@@ -108,7 +108,7 @@ def rebuildsNeeded(files, outfile, verbose, quiet):
 
     if do_write or len(oldrebuilds):
         if not quiet:
-            print "Building %s" % outfile
+            print("Building %s" % outfile)
         ostream = open(outfile, "w")
         for objfile in newrebuilds:
             ostream.write(objfile + ": FORCE\n")
