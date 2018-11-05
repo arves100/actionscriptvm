@@ -10,14 +10,14 @@ import re
 
 def writeFileIfChanged(path, contents):
     """Write some contents to a file. Avoids modifying the file timestamp if the file contents already match."""
-    print "Generating " + path + "...",
+    print("Generating " + path + "...")
     try:
         outf = open(path, "r")
         oldcontents = outf.read()
         outf.close()
 
         if oldcontents == contents:
-            print "not changed"
+            print("not changed")
             return
     except IOError:
         pass
@@ -186,7 +186,7 @@ class Configuration:
                 'OUTOPTION' : '-Fo',
                 'LIBPATH'   : '-LIBPATH:'
                 })
-	    if self._target[1] == "thumb2":
+            if self._target[1] == "thumb2":
                     self._acvars.update({'LDFLAGS' : '-NODEFAULTLIB:"oldnames.lib"'})
                     if sys.platform.startswith('cygwin'):
                         self._acvars.update({'ASM' : '$(topsrcdir)/build/cygwin-wrapper.sh armasm.exe -nologo'})
