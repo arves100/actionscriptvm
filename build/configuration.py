@@ -134,7 +134,7 @@ class Configuration:
             }
 
         if self._host[0] == 'windows':
-            self._acvars['topsrcdir'] = self._topsrcdir
+            self._acvars['topsrcdir'] = toMSYSPath(self._topsrcdir)
 
         if self._debug:
             self._acvars['ENABLE_DEBUG'] = 1
