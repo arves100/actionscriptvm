@@ -529,11 +529,17 @@ if zlib_include_dir is not None:
 
 zlib_lib = o.getStringArg('zlib-lib')
 if zlib_lib is None:
-    zlib_lib = '$(call EXPAND_LIBNAME,zlib)'
+    if config.isNmake():
+        zlib_lib = "zlib.lib"
+    else:
+        zlib_lib = '$(call EXPAND_LIBNAME,zlib)'
 
 lzma_lib = o.getStringArg('lzma-lib')
 if lzma_lib is None:
-    lzma_lib = '$(call EXPAND_LIBNAME,lzma)'
+    if config.isNmake():
+        lzma_lib = "lzma.lib"
+    else:
+        lzma_lib = '$(call EXPAND_LIBNAME,lzma)'
 
 AVMSHELL_LDFLAGS += zlib_lib + ' ' + lzma_lib
 

@@ -37,7 +37,7 @@ def _configGuess(options):
     return _configSub(ostest, cputest, options)
 
 def _configSub(ostest, cputest, options):
-    if ostest.startswith('win') or ostest.startswith('cygwin'):
+    if ostest.startswith('win') or ostest.startswith('cygwin') or ostest.startswith('msys'):
         os = 'windows'
     elif ostest.startswith('darwin') or ostest.startswith('apple-darwin'):
         os = 'darwin'
@@ -85,6 +85,7 @@ class Configuration:
         else:
             self._objdir = os.getcwd()
 
+        self._isnmake = False
         self._optimize = optimize
         self._debug = debug
         self._host = _configGuess(options)
@@ -133,7 +134,7 @@ class Configuration:
             }
 
         if self._host[0] == 'windows':
-            self._acvars['topsrcdir'] = toMSYSPath(self._topsrcdir)
+            self._acvars['topsrcdir'] = self._topsrcdir
 
         if self._debug:
             self._acvars['ENABLE_DEBUG'] = 1
@@ -209,6 +210,10 @@ class Configuration:
             if sys.platform.startswith('cygwin'):
                 self._acvars.update({'CXX'          : '$(topsrcdir)/build/cygwin-wrapper.sh cl.exe -nologo'})
                 self._acvars.update({'CC'           : '$(topsrcdir)/build/cygwin-wrapper.sh cl.exe -nologo'})
+            #else:
+            #    self._isnmake = True
+            #    del self._acvars['EXPAND_DLLNAME']
+            #    del self._acvars['EXPAND_LIBNAME']
 
         # Hackery! Make assumptions that we want to build with GCC 3.3 on MacPPC
         # and GCC4 on MacIntel
@@ -340,6 +345,10 @@ class Configuration:
         """Returns the build directory being configured."""
         return self._objdir
 
+    def isNmake(self):
+        """Check if nmake is used"""
+        return self._isnmake
+
     def getHost(self):
         """Returns an (os, cpu) tuple of the host machine."""
         return self._host
@@ -381,14 +390,19 @@ Possible values are:
             else:
                 contents += '%s=%s\n' % (k,v)
 
-        contents += "\n\ninclude $(topsrcdir)/build/config.mk\n" \
-                    "include $(topsrcdir)/manifest.mk\n" \
-                    "include $(topsrcdir)/build/rules.mk\n"
+        if self.isNmake():
+            contents += "\n\n!include $(topsrcdir)/build/config.nmk\n" \
+                        "!include $(topsrcdir)/manifest.mk\n" \
+                        "!include $(topsrcdir)/build/rules.mk\n"
+        else:
+            contents += "\n\ninclude $(topsrcdir)\\build\\config.mk\n" \
+                        "include $(topsrcdir)\\manifest.mk\n" \
+                        "include $(topsrcdir)\\build\\rules.mk\n"
 
         writeFileIfChanged(outpath, contents)
 
 def toMSYSPath(path):
-    if sys.platform.startswith('cygwin'):
+    if sys.platform.startswith('cygwin') or sys.platform.startswith("msys"):
         return path
     elif path[1] != ':':
         raise ValueError("win32 path without drive letter! %s" % path)
