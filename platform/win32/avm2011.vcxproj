@@ -1020,12 +1020,12 @@
     <TargetName>avm</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)obj2010\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)obj2011\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetName>avm</TargetName>
-    <IntDir>$(SolutionDir)obj2010\$(Configuration)\int\</IntDir>
+    <IntDir>$(SolutionDir)obj2011\$(Configuration)\int\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
   </PropertyGroup>
@@ -1035,12 +1035,12 @@
     <TargetName>avm</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Debugger|Win32'">
-    <OutDir>$(SolutionDir)obj2010\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)obj2011\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Debugger|ARM'" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Debugger|Win32'">
     <TargetName>avm</TargetName>
-    <IntDir>$(SolutionDir)obj2010\$(Configuration)\int\</IntDir>
+    <IntDir>$(SolutionDir)obj2011\$(Configuration)\int\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
   </PropertyGroup>
@@ -1050,12 +1050,12 @@
     <TargetName>avm</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Debugger|Win32'">
-    <OutDir>$(SolutionDir)obj2010\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)obj2011\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Debugger|ARM'" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Debugger|Win32'">
     <TargetName>avm</TargetName>
-    <IntDir>$(SolutionDir)obj2010\$(Configuration)\int\</IntDir>
+    <IntDir>$(SolutionDir)obj2011\$(Configuration)\int\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
   </PropertyGroup>
@@ -1066,26 +1066,26 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>avm</TargetName>
-    <OutDir>$(SolutionDir)obj2010\$(Configuration)64\</OutDir>
-    <IntDir>$(SolutionDir)obj2010\$(Configuration)64\int\</IntDir>
+    <OutDir>$(SolutionDir)obj2011\$(Configuration)64\</OutDir>
+    <IntDir>$(SolutionDir)obj2011\$(Configuration)64\int\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetName>avm</TargetName>
-    <OutDir>$(SolutionDir)obj2010\$(Configuration)64\</OutDir>
-    <IntDir>$(SolutionDir)obj2010\$(Configuration)64\int\</IntDir>
+    <OutDir>$(SolutionDir)obj2011\$(Configuration)64\</OutDir>
+    <IntDir>$(SolutionDir)obj2011\$(Configuration)64\int\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Debugger|x64'">
     <TargetName>avm</TargetName>
-    <OutDir>$(SolutionDir)obj2010\$(Configuration)64\</OutDir>
-    <IntDir>$(SolutionDir)obj2010\$(Configuration)64\int\</IntDir>
+    <OutDir>$(SolutionDir)obj2011\$(Configuration)64\</OutDir>
+    <IntDir>$(SolutionDir)obj2011\$(Configuration)64\int\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Debugger|x64'">
     <TargetName>avm</TargetName>
-    <OutDir>$(SolutionDir)obj2010\$(Configuration)64\</OutDir>
-    <IntDir>$(SolutionDir)obj2010\$(Configuration)64\int\</IntDir>
+    <OutDir>$(SolutionDir)obj2011\$(Configuration)64\</OutDir>
+    <IntDir>$(SolutionDir)obj2011\$(Configuration)64\int\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
